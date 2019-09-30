@@ -62,6 +62,7 @@ public class Main {                             // <- Class definition
         byte neg = - 1;
         int sum = (i + j) * 5;
         float div = (5.0f - f) / 3.0f;
+        short residue = 16 % 2;                 // <- calculate the residue; here it is 0``
         /* There are also two "unary" operators for increasing
          * and decreasing a value by one:
          */
@@ -111,11 +112,34 @@ public class Main {                             // <- Class definition
          * Branching the sequential order of the
          * execution based on a boolean value.
          */
-        if (b) { // Only one of these two statements are executed
+        if (b) // Only one of these two statements are executed
             System.out.println("b is true.");
-        } else {
+        else
             System.out.println("b is false.");
+
+        /* What goes inside two curly braces "{" and "}"
+         * is called a "block" of code. If we want multiple
+         * statements to be executed in a branch of a
+         * conditional statement, we can put them in a block.
+         */
+        int p = 3;
+        int q = 0;
+        // Suppose we want to divide p by q, only when q is not zero
+        if (q != 0) {
+            int pByq = p / q;
+            System.out.println("Result is: " + pByq);
+        } else
+            System.out.println("Can't divide by zero!");
+
+        /* We can write anything inside the conditional block,
+         * even another conditional statement:
+         */
+        if (i % 2 == 0) {
+            System.out.println("i is even.");
+            if (i % 5 == 0)
+                System.out.println("It is also a factor of 10.");
         }
+
 
         /* Sometimes we want a statement to run more
          * than once. We can do this inside a "loop".
@@ -123,9 +147,9 @@ public class Main {                             // <- Class definition
          * Anyways, we're going to need a variable of
          * a numerical type (like an int), to "count"
          * the number of executions. Then a "while"
-         * statement can be used to check, in each
-         * iteration, if we have reached the total
-         * number of executions so far:
+         * statement can be used to repeat and check,
+         *  in each iteration, if we have reached the
+         *  total number of executions so far:
          */
         int counter = 0;                                        // <- start from 0
         while (counter < 3) {                                   // <- check each time if we have reached 5
@@ -141,8 +165,28 @@ public class Main {                             // <- Class definition
         /* We can implement a loop in a simpler and
          * more natural fashion using a "for" statement:
          */
-        for (int h = 0; h < 3; h++) {                           // <- set, check and increase the counter
+        for (int h = 0; h < 3; h++)                       // <- set, check and increase the counter
             System.out.println("This is iteration " + h); // <- do something
+
+        /* Every thing inside a loop block will be executed
+         * as many times the loop condition is satisfied.
+         * even another loop.
+         * So, suppose a statement inside a loop is executed n
+         * times. How many times it will be executed if we put
+         * the loop inside another loop that iterates m times?
+         * m * n
+         */
+        for (int firstLevel = 0; firstLevel < 5; firstLevel++) {
+            for (int secondLevel = 0; secondLevel < 2; secondLevel++)
+                System.out.print("(" + firstLevel + ", " + secondLevel + ") ");  // <- "print" does not go to a new line
+            System.out.println();                         // <- "println" goes to a new line
         }
+        /* It will print this:
+         *      (0, 0) (0, 1)
+         *      (1, 0) (1, 1)
+         *      (2, 0) (2, 1)
+         *      (3, 0) (3, 1)
+         *      (4, 0) (4, 1)
+         */
     }
 }
