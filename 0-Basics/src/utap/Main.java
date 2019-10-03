@@ -6,6 +6,8 @@
  */
 package utap;                                   // <- Package name
 
+import java.util.Scanner;
+
 public class Main {                             // <- Class definition
     public static void main(String[] args) {    // <- function definition
         /* Variables are basic containers of data.
@@ -153,13 +155,13 @@ public class Main {                             // <- Class definition
          */
         int counter = 0;                                        // <- start from 0
         while (counter < 3) {                                   // <- check each time if we have reached 5
-            System.out.println("This is iteration " + counter); // <- do something
+            System.out.println("Count " + counter); // <- do something
             counter = counter + 1;                              // <- count another iteration
         }
         /* You will see this in the output:
-         *      This is iteration 0
-         *      This is iteration 1
-         *      This is iteration 2
+         *      Count 0
+         *      Count 1
+         *      Count 2
          */
 
         /* We can implement a loop in a simpler and
@@ -188,5 +190,48 @@ public class Main {                             // <- Class definition
          *      (3, 0) (3, 1)
          *      (4, 0) (4, 1)
          */
+
+        // It is possible to dynamically set the loop bound
+        for (int row = 0; row < 5; row++) {
+            for (int y = 0; y < row + 1; y++)
+                System.out.print("* ");
+            System.out.println();
+        }
+        /* This will output:
+         *      *
+         *      * *
+         *      * * *
+         *      * * * *
+         *      * * * * *
+         */
+
+        /* Finally, let's see a more complex example that
+         * summarizes what we learned, and also shows how
+         * to get input from user.
+         *
+         * First, it shows a prompt; informing user
+         * that we are waiting for their input:
+         */
+        System.out.println("What should I call you?");
+        /* Finally, getting input from the user needs
+         * a "scanner", which is defined like this:
+         */
+        Scanner scan = new Scanner(System.in);
+        // Then we use the scanner to get a String from user
+        String name = scan.nextLine();                          // <- this line blocks the execution
+        System.out.println("Nice to meet you.\n" +
+                "So what do you think " + name + "?\n" +
+                "\t1) I think.\n" +
+                "\t2) I think not.");
+        int option = 0;
+        while (option != 1 && option != 2) {
+            System.out.print("Please choose '1' or '2':");
+            // we can use the same scanner more than once, this time to get an int
+            option = scan.nextInt();
+        }
+        if (option == 1)
+            System.out.println("I used to know someone called " + name + " who thought alike.");
+        else
+            System.out.println("Me too!");
     }
 }
