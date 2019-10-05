@@ -21,66 +21,58 @@ public class Main {
         Student s;          // <- this is a reference, a name, that could refer to an object of type Studednt
                             //    but it is still "empty", i.e. it refers to a general object called "null"
 
-        s = new Student();  // <- "new" keyword creates an instance of a class
+        s = new Student("Mammad", 5);  // <- "new" keyword creates an instance of a class
                             //    now s refers to a real Student
 
         // Create a Student[] object: an array of references to instances of Student type
         Student[] studentArray = new Student[5];
 
         // notice that each array element is still null
-        studentArray[0] = new Student();    // <- now it refers to a new Student instance
-        // we can access the fields of an object by a "." after its reference
-        studentArray[0].name = "Kurt";
-        studentArray[0].age = 25;
-
-        studentArray[1] = new Student();
-        studentArray[1].name = "Alonzo";
-        studentArray[1].age = 26;
-
-        studentArray[2] = new Student();
-        studentArray[2].name = "Stephen";
-        studentArray[2].age = 22;
-
-        studentArray[3] = new Student();
-        studentArray[3].name = "Emil";
-        studentArray[3].age = 34;
-
-        studentArray[4] = new Student();
-        studentArray[4].name = "Alan";
-        studentArray[4].age = 19;
+        studentArray[0] = new Student("Kurt", 25);    // <- now it refers to a new Student instance
+        // we can not access the fields of this object anymore, since they are defined "private"
+        // studentArray[0].name = "Kurt";                       // <- uncomment to see the error
+        studentArray[1] = new Student("Alonzo", 26);
+        studentArray[2] = new Student("Stephen", 22);
+        studentArray[3] = new Student("Emil", 34);
+        studentArray[4] = new Student("Alan", 19);
 
         // and an array of Courses
         Course[] courseArray = new Course[4];
+        courseArray[0] = new Course("Math", "Gauss");
+        courseArray[1] = new Course("Programming", "Knuth");
+        courseArray[2] = new Course("Physics", "Newton");
+        courseArray[3] = new Course("Logic", "Leibniz");
 
-        courseArray[0] = new Course();
-        courseArray[0].name = "Math";
-        courseArray[0].lecturerName = "Gauss";
-
-        courseArray[1] = new Course();
-        courseArray[1].name = "Programming";
-        courseArray[1].lecturerName = "Knuth";
-
-        courseArray[2] = new Course();
-        courseArray[2].name = "Physics";
-        courseArray[2].lecturerName = "Newton";
-
-        courseArray[3] = new Course();
-        courseArray[3].name = "Logic";
-        courseArray[3].lecturerName = "Leibniz";
+        StudentCourse[] alansCourses = new StudentCourse[4];
+        alansCourses[0] = new StudentCourse(courseArray[0], 12);
+        alansCourses[0] = new StudentCourse(courseArray[1], 18);
+        alansCourses[0] = new StudentCourse(courseArray[2], 11);
+        alansCourses[0] = new StudentCourse(courseArray[3], 19);
+        studentArray[0].addCourses(alansCourses);
 
         /* This is a good situation to see a useful syntax
          * of a "for" statement:
          */
+
+        // Now see how a simple job stays simple and intuitive
+        for(Student student : studentArray)
+            for(StudentCourse studentCourse : student.getStudentCourseArray())
+                System.out.println("Dear Prof. " + studentCourse.getCourse().getLecturerName() +
+                        ", You have a young student called " + student.getName() +
+                        " with bad scores in your " + studentCourse.getCourse().getName() + " course.");
+        // This is not because it's a simple job, it's because our good "design" of the problem.
+
         System.out.println("List of students:\n" +
                 "NAME\tAGE\n" +
                 "------------------------");
         for(Student student : studentArray)                         // <- loop over the array with an "iterator"
-            System.out.println(student.name + "\t" + student.age);  // <- the iterator refers to next element each time
+            System.out.println(student.getName() + "\t" + student.getAge());  // <- the iterator refers to next element each time
 
         System.out.println("\nList of courses:\n" +
                 "NAME\tLECTURER\n" +
                 "------------------------");
         for(Course course : courseArray)
-            System.out.println(course.name + "\t" + course.lecturerName);
+            System.out.println(course.getName() + "\t" + course.getLecturerName()); // <- we also call an object's method
+                                                                                    //    by referring it's name with a "."
     }
 }
