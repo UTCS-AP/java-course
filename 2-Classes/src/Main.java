@@ -45,9 +45,10 @@ public class Main {
 
         StudentCourse[] alansCourses = new StudentCourse[4];
         alansCourses[0] = new StudentCourse(courseArray[0], 12);
-        alansCourses[0] = new StudentCourse(courseArray[1], 18);
-        alansCourses[0] = new StudentCourse(courseArray[2], 11);
-        alansCourses[0] = new StudentCourse(courseArray[3], 19);
+        alansCourses[1] = new StudentCourse(courseArray[1], 18);
+        alansCourses[2] = new StudentCourse(courseArray[2], 11);
+        alansCourses[3] = new StudentCourse(courseArray[3], 19);
+
         studentArray[0].addCourses(alansCourses);
 
         /* This is a good situation to see a useful syntax
@@ -57,6 +58,7 @@ public class Main {
         // Now see how a simple job stays simple and intuitive
         for(Student student : studentArray)
             for(StudentCourse studentCourse : student.getStudentCourseArray())
+                if(student.getAge() < 12 && studentCourse.getScore() < 12)
                 System.out.println("Dear Prof. " + studentCourse.getCourse().getLecturerName() +
                         ", You have a young student called " + student.getName() +
                         " with bad scores in your " + studentCourse.getCourse().getName() + " course.");
