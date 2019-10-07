@@ -1,10 +1,14 @@
 public class Vector {
+    static int COUNT;
+
     private double x;
     private double y;
 
     public Vector(double x, double y) {
         this.x = x;
         this.y = y;
+
+        Vector.COUNT++;
     }
 
     public double getX() {
