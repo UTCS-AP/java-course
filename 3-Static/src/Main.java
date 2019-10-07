@@ -9,5 +9,6 @@ public class Main {
         vectorCount++;
 
         Triangle t = new Triangle(0, 0, 0, 1, 1, 0);
+        vectorCount = vectorCount + 3;
     }
 }
