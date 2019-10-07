@@ -1,5 +1,5 @@
 public class Vector {
-    static int COUNT;
+    private static int COUNT;
 
     private double x;
     private double y;
@@ -21,5 +21,9 @@ public class Vector {
 
     public double length() {
         return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));
+    }
+
+    public static int getCOUNT() {
+        return COUNT;
     }
 }
