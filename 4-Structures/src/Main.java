@@ -1,6 +1,7 @@
 import data.Person;
 import structure.Queue;
 import structure.Stack;
+import structure.linkedlist.LinkedList;
 
 public class Main {
     static public void main(String[] args) {
@@ -85,5 +86,14 @@ public class Main {
         Person nothing = stack.pop();
         if (nothing == null)
             System.out.println("Ready to meet my maker.");
+
+        LinkedList linkedList = new LinkedList();
+        linkedList.insert(mamad);
+        linkedList.insert(ali);
+        System.out.println("Last: " + linkedList.get().getFirstName());
+        System.out.println("Deleting...");
+        linkedList.delete();
+        System.out.println("Last: " + linkedList.get().getFirstName());
+
     }
 }
