@@ -11,7 +11,6 @@ public class LinkedList {
     private Node head = null;
 
     public boolean isEmpty() { return (this.head == null); }
-
     public boolean delete(int index) {
         if (this.isEmpty())
             return false;
@@ -19,6 +18,9 @@ public class LinkedList {
             this.head = this.head.getNext();
             return true;
         } else {
+            //we should check the index first
+            if (!this.index_cheker(index))
+                return false;
             Node prevNode = this.traverseTo(index - 1);
             prevNode.setNext(prevNode.getNext().getNext());
             return true;
@@ -54,18 +56,33 @@ public class LinkedList {
     }
 
     public boolean insert(Person person, int index) {
-        Node prevNode = this.traverseTo(index - 1);
-        if (prevNode != null) {
+        // here we should check some more possibilities that weren't check before
+        if (this.isEmpty() && index > 0 )
+            return false;
+        else if (this.isEmpty() || index==0) {
+            this.head = new Node(person, this.head);
+            return true;
+        }
+        else {
+            //we should check the index first
+            if (!this.index_cheker(index))
+                return false;
+            Node prevNode = this.traverseTo(index - 1);
+            /*this if statement here is unnecessary because prevNode is never going to be null*/
+            /* if (prevNode != null) {*/
             prevNode.setNext(new Node(person, prevNode.getNext()));
             return true;
-        } else {
-            return false;
+             /*} else {
+                 return false;
+             }*/
         }
     }
 
     public Person get(int index) {
         Node node = this.traverseTo(index);
-        return node == null ? null : node.getPerson();
+        /*here this if and else if statement is unnecessary because node is never going to be null*/
+        return node.getPerson();
+        /*return (node == null ? null : node.getPerson());*/
     }
 
     public Person get() {
@@ -96,5 +113,9 @@ public class LinkedList {
             }
         }
         return currentNode;
+    }
+     /*this function checks index not to be out of the linkedlist size*/
+    private boolean index_cheker(int index) {
+        return (this.traverseTo(index).getNext()==null  ? false:true);
     }
 }
