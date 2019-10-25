@@ -19,7 +19,7 @@ public class LinkedList {
             if (index != 0 || this.isEmpty())
                 return false;
             else {
-                this.head = null;
+                this.head = this.head.getNext();
                 return true;
             }
         } else if (prevNode.getNext() != null) {
