@@ -1,6 +1,7 @@
 import data.Person;
 import structure.Queue;
 import structure.Stack;
+import structure.bintree.BinTree;
 import structure.linkedlist.LinkedList;
 
 public class Main {
@@ -178,5 +179,32 @@ public class Main {
             personIterator = linkedList.get();
         }
 
+
+        System.out.println("-----------------------");
+
+        BinTree tree = new BinTree();
+        System.out.println("Adding to the tree...");
+        tree.insert(zari);
+        tree.insert(mammad);
+        tree.insert(pari);
+        tree.insert(ali);
+
+        System.out.println("Depth first travers:");
+        LinkedList flattenDFS = tree.flattenDepthFirst();
+        i = 0;
+        personIterator = flattenDFS.get(0);
+        while (personIterator != null) {
+            System.out.println("\t" + personIterator.getFirstName());
+            personIterator = flattenDFS.get(++i);
+        }
+
+        System.out.println("Breadth first travers:");
+        LinkedList flattenBFS = tree.flattenBreadthFirst();
+        i = 0;
+        personIterator = flattenBFS.get(0);
+        while (personIterator != null) {
+            System.out.println("\t" + personIterator.getFirstName());
+            personIterator = flattenBFS.get(++i);
+        }
     }
 }
