@@ -36,17 +36,8 @@ public class Main {
         );
 
         for (Person personIterator : people) {
-            String occupation;
-            switch (personIterator.getOccupation()) {
-                case 0: occupation = "Student"; break;
-                case 1: occupation = "Teacher"; break;
-                case 2: occupation = "Developer"; break;
-                case 3: occupation = "Astronaut"; break;
-                case 4: occupation = "Hunter"; break;
-                default: occupation = "N/A";
-            }
             System.out.println("Name: " + personIterator.getFirstName() +
-                    "\tOccupation: " + occupation);
+                    "\tOccupation: " + personIterator.getOccupation());
         }
     }
 }

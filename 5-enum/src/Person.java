@@ -45,7 +45,16 @@ public class Person {
         return this.email;
     }
 
-    int getOccupation() {
-        return this.occupation;
+    String getOccupation() {
+        String occupation;
+        switch (this.occupation) {
+            case 0: occupation = "Student"; break;
+            case 1: occupation = "Teacher"; break;
+            case 2: occupation = "Developer"; break;
+            case 3: occupation = "Astronaut"; break;
+            case 4: occupation = "Hunter"; break;
+            default: occupation = "N/A";
+        }
+        return occupation;
     }
 }
