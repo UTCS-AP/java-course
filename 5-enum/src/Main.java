@@ -36,8 +36,24 @@ public class Main {
         );
 
         for (Person personIterator : people) {
-            System.out.println("Name: " + personIterator.getFirstName() +
-                    "\tOccupation: " + personIterator.getOccupation().getName());
+            System.out.print("Name: " + personIterator.getFirstName() + "\tOccupation: ");
+            switch (personIterator.getOccupation()) {
+                case STUDENT:
+                    System.out.println("Student");
+                    break;
+                case TEACHER:
+                    System.out.println("Teacher");
+                    break;
+                case DEVELOPER:
+                    System.out.println("Developer");
+                    break;
+                case ASTRONAUT:
+                    System.out.println("Astronaut");
+                    break;
+                case HUNTER:
+                    System.out.println("Hunter");
+                    break;
+            }
         }
     }
 }
