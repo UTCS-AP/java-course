@@ -1,23 +1,19 @@
 public class Person {
     private String firstName, lastName, fathersName, address, email;
 
-    private int occupation; // THIS SHOULD ONLY TAKE "Occupation" OBJECTS
+    private Occupation occupation; // THIS SHOULD ONLY TAKE "Occupation" OBJECTS
     Person(String firstName,
                   String lastName,
                   String fathersName,
                   String address,
                   String email,
-                  int occupation) {
+                  Occupation occupation) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.fathersName = fathersName;
         this.address = address;
         this.email = email;
-
-        if (0 <= occupation && occupation <= 5) // <- checks if a valid occupation code is given
-            this.occupation = occupation;
-        else
-            this.occupation = 0;                // <- default is student
+        this.occupation = occupation;
     }
 
     String getFirstName() {
@@ -40,16 +36,7 @@ public class Person {
         return this.email;
     }
 
-    String getOccupation() {
-        String occupation;
-        switch (this.occupation) {
-            case 0: occupation = "Student"; break;
-            case 1: occupation = "Teacher"; break;
-            case 2: occupation = "Developer"; break;
-            case 3: occupation = "Astronaut"; break;
-            case 4: occupation = "Hunter"; break;
-            default: occupation = "N/A";
-        }
-        return occupation;
+    Occupation getOccupation() {
+        return this.occupation;
     }
 }

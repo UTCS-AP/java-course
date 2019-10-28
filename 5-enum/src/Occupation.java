@@ -1,9 +1,9 @@
 class Occupation {
-    static final int STUDENT = 0;
-    static final int TEACHER = 1;
-    static final int DEVELOPER = 2;
-    static final int ASTRONAUT = 3;
-    static final int HUNTER = 4;
+    static final Occupation STUDENT = new Occupation();
+    static final Occupation TEACHER = new Occupation();
+    static final Occupation DEVELOPER = new Occupation();
+    static final Occupation ASTRONAUT = new Occupation();
+    static final Occupation HUNTER = new Occupation();
 
     private Occupation() {}
 }
