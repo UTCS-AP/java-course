@@ -1,12 +1,7 @@
 public class Person {
     private String firstName, lastName, fathersName, address, email;
 
-    private int occupation; // 0 = student
-                            // 1 = teacher
-                            // 2 = developer
-                            // 3 = astronaut
-                            // 4 = hunter
-
+    private int occupation; // THIS SHOULD ONLY TAKE "Occupation" OBJECTS
     Person(String firstName,
                   String lastName,
                   String fathersName,

@@ -8,7 +8,7 @@ public class Main {
                 "Mammad",
                 "Door",
                 "ali.mamalian@asf.sa",
-                0                           // <- student
+                Occupation.STUDENT
         );
         people[1] = new Person(
                 "Mammad",
@@ -16,7 +16,7 @@ public class Main {
                 "Akbar",
                 "Hamoonja",
                 "mamad.kachal@asf.sa",
-                1                           // <- teacher
+                Occupation.TEACHER
         );
         people[2] = new Person(
                 "Pari",
@@ -24,7 +24,7 @@ public class Main {
                 "Asghar",
                 "Doortar",
                 "parpar@asf.sa",
-                2                           // <- developer
+                Occupation.DEVELOPER
         );
         people[3] = new Person(
                 "Zari",
@@ -32,7 +32,7 @@ public class Main {
                 "Asghar",
                 "Hamoonvara",
                 "zz@asf.sa",
-                3                           // <- astronaut
+                Occupation.ASTRONAUT
         );
 
         for (Person personIterator : people) {
