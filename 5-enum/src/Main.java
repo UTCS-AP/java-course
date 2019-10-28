@@ -37,7 +37,7 @@ public class Main {
 
         for (Person personIterator : people) {
             System.out.println("Name: " + personIterator.getFirstName() +
-                    "\tOccupation: " + personIterator.getOccupation());
+                    "\tOccupation: " + personIterator.getOccupation().getName());
         }
     }
 }

@@ -1,9 +1,17 @@
 class Occupation {
-    static final Occupation STUDENT = new Occupation();
-    static final Occupation TEACHER = new Occupation();
-    static final Occupation DEVELOPER = new Occupation();
-    static final Occupation ASTRONAUT = new Occupation();
-    static final Occupation HUNTER = new Occupation();
+    String name;
 
-    private Occupation() {}
+    static final Occupation STUDENT = new Occupation("Student");
+    static final Occupation TEACHER = new Occupation("Teacher");
+    static final Occupation DEVELOPER = new Occupation("Developer");
+    static final Occupation ASTRONAUT = new Occupation("Astronaut");
+    static final Occupation HUNTER = new Occupation("Hunter");
+
+    private Occupation(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
