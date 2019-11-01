@@ -15,4 +15,11 @@ enum Occupation {
     public String getName() {
         return name;
     }
+
+    public static Occupation typeOf(String name) {
+        for (Occupation occupation : Occupation.values())
+            if (name.equals(occupation.getName()))
+                return occupation;
+        return null;
+    }
 }
