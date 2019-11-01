@@ -12,10 +12,10 @@ public class Student {
     }
 
     public String toString() {
-        return "Name:\t" + this.name +
-                "Address:\t" + this.address +
-                "Email:\t" + this.email +
-                "Student id:\t" + this.studentId;
+        return "Name:" + this.name +
+                "\tAddress:" + this.address +
+                "\tEmail:" + this.email +
+                "\tStudent id:" + this.studentId;
     }
 
     public String getName() {

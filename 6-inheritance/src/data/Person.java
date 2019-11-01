@@ -10,9 +10,9 @@ public class Person {
     }
 
     public String toString() {
-        return "Name:\t" + this.name +
-                "Address:\t" + this.address +
-                "Email:\t" + this.email;
+        return "Name: " + this.name +
+                "\tAddress: " + this.address +
+                "\tEmail:" + this.email;
     }
 
     public String getName() {

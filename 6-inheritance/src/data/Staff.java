@@ -14,11 +14,11 @@ public class Staff {
     }
 
     public String toString() {
-        return "Name:\t" + this.name +
-                "Address:\t" + this.address +
-                "Email:\t" + this.email +
-                "Staff id:\t" + this.staffId +
-                "Occupation:\t" + this.occupation.getName();
+        return "Name:" + this.name +
+                "\tAddress:" + this.address +
+                "\tEmail:" + this.email +
+                "\tStaff id:" + this.staffId +
+                "\tOccupation:" + this.occupation.getName();
     }
 
     public String getName() {
