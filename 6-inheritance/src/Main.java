@@ -2,8 +2,9 @@ import data.Occupation;
 import data.Person;
 import data.Staff;
 import data.Student;
-
-import java.util.stream.Stream;
+import structures.AbstractFixedQueue;
+import structures.CircularQueue;
+import structures.ShiftQueue;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,8 +15,28 @@ public class Main {
         int mohsenId = mohsen.getStudentId();
         // int aliId = ali.getStaffId();    // ERROR
 
-        System.out.println(rez.toString());
-        System.out.println(ali.toString());
-        System.out.println(mohsen.toString());
+        AbstractFixedQueue queue = new CircularQueue(2);
+        // AbstractFixedQueue queue = new ShiftQueue(2);
+
+        System.out.println(
+                queue.enqueue(ali) ?
+                        "Added " + ali.getName() :
+                        "Error!"
+                );
+        System.out.println(
+                queue.enqueue(mohsen) ?
+                        "Added " + mohsen.getName() :
+                        "Error!"
+        );
+        System.out.println(
+                queue.enqueue(rez) ?
+                        "Added " + rez.getName() :
+                        "Error!"
+        );
+
+        System.out.println("Reading from queue...");
+        Person personIterator;
+        while ((personIterator = queue.dequeue()) != null)
+            System.out.println(personIterator.toString());
     }
 }
