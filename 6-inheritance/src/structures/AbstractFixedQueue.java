@@ -2,7 +2,7 @@ package structures;
 
 import data.Person;
 
-public class AbstractFixedQueue {
+public abstract class AbstractFixedQueue {
     final static private int DEFAULT_SIZE = 10;
 
     final protected int size;
@@ -17,7 +17,7 @@ public class AbstractFixedQueue {
         this.list = new Person[this.size];
     }
 
-    public boolean enqueue(Person person) { return false; }
+    public abstract boolean enqueue(Person person);
 
-    public Person dequeue() { return null; }
+    public abstract Person dequeue();
 }
