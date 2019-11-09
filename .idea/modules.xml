@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/4-Structures/4-Structures.iml" filepath="$PROJECT_DIR$/4-Structures/4-Structures.iml" />
       <module fileurl="file://$PROJECT_DIR$/5-enum/5-enum.iml" filepath="$PROJECT_DIR$/5-enum/5-enum.iml" />
       <module fileurl="file://$PROJECT_DIR$/6-inheritance/6-inheritance.iml" filepath="$PROJECT_DIR$/6-inheritance/6-inheritance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/7-cast/7-cast.iml" filepath="$PROJECT_DIR$/7-cast/7-cast.iml" />
       <module fileurl="file://$PROJECT_DIR$/utap.iml" filepath="$PROJECT_DIR$/utap.iml" />
     </modules>
   </component>
