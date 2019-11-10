@@ -32,18 +32,18 @@ public class Main {
         Student studentAgain = (Student) studentAsPerson;
         Staff staffAgain = (Staff) staffAsPerson;
 
-        jamsheed = printNonDevs(jamsheed);
+        jamsheed = trim(jamsheed);
 
-        asghar = (Student) printNonDevs(asghar);
+        asghar = (Student) trim(asghar);
 
-        akbar = (Staff) printNonDevs(akbar);
+        akbar = (Staff) trim(akbar);
 
         System.out.println(jamsheed);
         System.out.println(asghar);
         System.out.println(akbar);
     }
 
-    private static Person printNonDevs(Person person) {
+    private static Person trim(Person person) {
         if (person instanceof Student) {
             Student student = (Student) person;
             return new Student(
