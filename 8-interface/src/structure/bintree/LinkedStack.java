@@ -19,7 +19,6 @@ public class LinkedStack implements Tracker {
         return this.pop();
     }
 
-    @Override
     public void add(TreeNode node) {
         this.push(node);
     }
