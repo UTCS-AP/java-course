@@ -8,15 +8,15 @@ import structure.linkedlist.LinkedList;
  * get and delete methods to simulate the functionality of a queue via
  * enqueue and dequeue methods.
  */
-public class LinkedQueue implements Queue {
+public class LinkedQueue<T> implements Queue<T> {
     /** the actual LinkedList structure */
-    private LinkedList list = new LinkedList();
+    private LinkedList<T> list = new LinkedList<T>();
 
     /**
      * Adds another object at the end of the queue.
      * @param o the object to be added
      */
-    public void enqueue(Object o) {
+    public void enqueue(T o) {
         this.list.insert(o);
     }
 
@@ -24,8 +24,8 @@ public class LinkedQueue implements Queue {
      * Removes and gives the object at the front of the queue.
      * @return the first object in the queue, null if it is empty
      */
-    public Object dequeue() {
-        Object o = this.list.get(0);
+    public T dequeue() {
+        T o = this.list.get(0);
         this.list.delete(0);
         return o;
     }

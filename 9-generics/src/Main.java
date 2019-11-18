@@ -13,35 +13,35 @@ public class Main {
         final Person pari = new Person("Pari", "Pardareh", "Asghar", "Doortar", "parpar@asf.sa");
         final Person zari = new Person("Zari", "Zardareh", "Asghar", "Hamoonvara", "zz@asf.sa");
 
-        Queue queue = new LinkedQueue();
+        Queue<Person> queue = new LinkedQueue<Person>();
         queue.enqueue(ali);
         queue.enqueue(mammad);
         queue.enqueue(zari);
         queue.enqueue(pari);
 
-        Person personIterator = (Person) queue.dequeue();
+        Person personIterator = queue.dequeue();
         while (personIterator != null) {
             System.out.println("\t" + personIterator.getFirstName());
-            personIterator = (Person) queue.dequeue();
+            personIterator = queue.dequeue();
         }
 
         System.out.println("-----------------------");
 
-        Stack stack = new LinkedStack();
+        Stack<Person> stack = new LinkedStack<Person>();
         stack.push(pari);
         stack.push(mammad);
         stack.push(zari);
         stack.push(ali);
 
-        personIterator = (Person) stack.pop();
+        personIterator = stack.pop();
         while (personIterator != null) {
             System.out.println("\t" + personIterator.getFirstName());
-            personIterator = (Person) stack.pop();
+            personIterator = stack.pop();
         }
 
         System.out.println("-----------------------");
 
-        LinkedList linkedList = new LinkedList();
+        LinkedList<Person> linkedList = new LinkedList<Person>();
 
         System.out.println("Inserting " + mammad.getFirstName() + " to the end of the list.");
         linkedList.insert(mammad);
@@ -107,24 +107,24 @@ public class Main {
 
         System.out.println("Traversing forward...");
         int i = 0;
-        personIterator = (Person) linkedList.get(0);
+        personIterator = linkedList.get(0);
         while (personIterator != null) {
             System.out.println("\t" + personIterator.getFirstName());
-            personIterator = (Person) linkedList.get(++i);
+            personIterator = linkedList.get(++i);
         }
 
         System.out.println("Traversing backward...");
-        personIterator = (Person) linkedList.get();
+        personIterator = linkedList.get();
         while (personIterator != null) {
             System.out.println("\t" + personIterator.getFirstName());
             linkedList.delete();
-            personIterator = (Person) linkedList.get();
+            personIterator = linkedList.get();
         }
 
 
         System.out.println("-----------------------");
 
-        BinTree tree = new BinTree();
+        BinTree<Person> tree = new BinTree<Person>();
         System.out.println("Adding to the tree...");
         tree.insert(zari);
         tree.insert(mammad);
@@ -132,21 +132,21 @@ public class Main {
         tree.insert(ali);
 
         System.out.println("Depth first travers:");
-        LinkedList flattenDFS = tree.flattenDepthFirst();
+        LinkedList<Person> flattenDFS = tree.flattenDepthFirst();
         i = 0;
-        personIterator = (Person) flattenDFS.get(0);
+        personIterator = flattenDFS.get(0);
         while (personIterator != null) {
             System.out.println("\t" + personIterator.getFirstName());
-            personIterator = (Person) flattenDFS.get(++i);
+            personIterator = flattenDFS.get(++i);
         }
 
         System.out.println("Breadth first travers:");
-        LinkedList flattenBFS = tree.flattenBreadthFirst();
+        LinkedList<Person> flattenBFS = tree.flattenBreadthFirst();
         i = 0;
-        personIterator = (Person) flattenBFS.get(0);
+        personIterator = flattenBFS.get(0);
         while (personIterator != null) {
             System.out.println("\t" + personIterator.getFirstName());
-            personIterator = (Person) flattenBFS.get(++i);
+            personIterator = flattenBFS.get(++i);
         }
 
     }

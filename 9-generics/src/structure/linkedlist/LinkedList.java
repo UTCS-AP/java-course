@@ -9,10 +9,10 @@ package structure.linkedlist;
  * next one).
  * Also notice that this is the only public class in this package.
  */
-public class LinkedList {
+public class LinkedList<T> {
 
     /** First node in the list, null when it's empty. */
-    private Node head = null;
+    private Node<T> head = null;
 
     /**
      * Checks whether the list is empty, i.e. head is null.
@@ -36,7 +36,7 @@ public class LinkedList {
      * @return true if a valid index was given, false otw.
      */
     public boolean delete(int index) {
-        Node prevNode = this.traverseTo(index - 1);         // <- get the previous node
+        Node<T> prevNode = this.traverseTo(index - 1);         // <- get the previous node
 
         if (prevNode == null) {                             // <- (index - 1) is not valid
             if (index != 0 || this.isEmpty())               // <- invalid deletion
@@ -61,11 +61,11 @@ public class LinkedList {
         if (this.isEmpty())
             return false;
         else {
-            Node currentNode = this.head;
+            Node<T> currentNode = this.head;
             if (currentNode.getNext() == null)              // <- if head is the only node
                 this.head = null;
             else {
-                Node prevNode;                              // <- keeps the previous node
+                Node<T> prevNode;                              // <- keeps the previous node
                 do {
                     prevNode = currentNode;
                     currentNode = currentNode.getNext();
@@ -81,11 +81,11 @@ public class LinkedList {
      *
      * @param object the object to be added
      */
-    public void insert(Object object) {
+    public void insert(T object) {
         if (this.isEmpty())
-            this.head = new Node(object);               // <- set the head
+            this.head = new Node<T>(object);               // <- set the head
         else
-            this.getLast().setNext(new Node(object));   // <- set the next reference of the last node
+            this.getLast().setNext(new Node<T>(object));   // <- set the next reference of the last node
     }
 
     /**
@@ -114,14 +114,14 @@ public class LinkedList {
      * @param index the index at which {@param object} is inserted
      * @return true if the index is valid, false otw.
      */
-    public boolean insert(Object object, int index) {
+    public boolean insert(T object, int index) {
         if (index == 0) {
-            this.head = new Node(object, this.head);
+            this.head = new Node<T>(object, this.head);
             return true;
         }
         Node prevNode = this.traverseTo(index - 1);
         if (prevNode != null) {
-            prevNode.setNext(new Node(object, prevNode.getNext()));
+            prevNode.setNext(new Node<T>(object, prevNode.getNext()));
             return true;
         } else
             return false;
@@ -133,8 +133,8 @@ public class LinkedList {
      * @param index index of (node of) the wanted object in the list
      * @return Object of the node at given index
      */
-    public Object get(int index) {
-        Node node = this.traverseTo(index);
+    public T get(int index) {
+        Node<T> node = this.traverseTo(index);
         return node == null ? null : node.getObject();
     }
 
@@ -143,8 +143,8 @@ public class LinkedList {
      *
      * @return Object of the last node in the list
      */
-    public Object get() {
-        Node node = this.getLast();
+    public T get() {
+        Node<T> node = this.getLast();
         return node == null ? null : node.getObject();
     }
 
@@ -158,8 +158,8 @@ public class LinkedList {
      * @param index index of the wanted node in the list
      * @return node at the given index, null if the index is not valid
      */
-    private Node traverseTo(int index) {
-        Node currentNode = index < 0 ? null : this.head;
+    private Node<T> traverseTo(int index) {
+        Node<T> currentNode = index < 0 ? null : this.head;
         if (currentNode != null) {
             Node nextNode = currentNode.getNext();
             for (int i = 0; i < index; i++) {
@@ -179,10 +179,10 @@ public class LinkedList {
      *
      * @return last node in the list, null if it is empty
      */
-    private Node getLast() {
-        Node currentNode = this.head;
+    private Node<T> getLast() {
+        Node<T> currentNode = this.head;
         if (currentNode != null) {
-            Node nextNode = currentNode.getNext();
+            Node<T> nextNode = currentNode.getNext();
             while (nextNode != null) {
                 currentNode = nextNode;
                 nextNode = currentNode.getNext();

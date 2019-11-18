@@ -5,19 +5,19 @@ package structure.linkedlist;
  * So Node objects can gather as a chain, such that each one keeps a reference to the
  * next Node in the chain. A LinkList object can hold and maintain such chain.
  */
-class Node {
+class Node<T> {
     /** Object of this node */
-    private Object object;
+    private T object;
 
     /** Reference to the next node in the chain, null when this is the last node. */
-    private Node next;
+    private Node<T> next;
 
     /**
      * Creates new Node object, with given Object, next is null until explicitly set
      * by setNext().
      * @param object Object of this Node
      */
-    Node(Object object) {
+    Node(T object) {
         this.object = object;
         this.next = null;
     }
@@ -27,7 +27,7 @@ class Node {
      * @param object Object of this Node
      * @param next next Node of this Node in the chain
      */
-    Node(Object object, Node next) {
+    Node(T object, Node<T> next) {
         this.object = object;
         this.next = next;
     }
@@ -35,7 +35,7 @@ class Node {
     /**
      * @return Object of this node
      */
-    Object getObject() {
+    T getObject() {
         return this.object;
     }
 
@@ -43,7 +43,7 @@ class Node {
     /**
      * @return Next node in the chain, or null if this is the last node in the chain.
      */
-    Node getNext() {
+    Node<T> getNext() {
         return this.next;
     }
 
@@ -51,7 +51,7 @@ class Node {
      * Set next node of this node
      * @param next next node
      */
-    void setNext(Node next) {
+    void setNext(Node<T> next) {
         this.next = next;
     }
 

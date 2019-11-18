@@ -1,6 +1,6 @@
 package structure;
 
-public interface Stack {
-    void push(Object o);
-    Object pop();
+public interface Stack<T> {
+    void push(T o);
+    T pop();
 }

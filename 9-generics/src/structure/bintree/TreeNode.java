@@ -6,19 +6,19 @@ package structure.bintree;
  * keeps two references to the successor nodes in the tree. A BinTree object can hold
  * and maintain such tree.
  */
-public class TreeNode {
+public class TreeNode<T> {
     /** Object of this node */
-    private Object object;
+    private T object;
 
     /** References to the successor nodes in the tree, both null when this is a leaf. */
-    private TreeNode left, right;
+    private TreeNode<T> left, right;
 
     /**
      * Creates new TreeNode object, with given Object, left and right references are
      * null until explicitly set by their corresponding setter methods.
      * @param object Object of this node
      */
-    public TreeNode(Object object) {
+    public TreeNode(T object) {
         this.object = object;
         this.left = null;
         this.right = null;
@@ -30,29 +30,29 @@ public class TreeNode {
      * @param left left successor of this node in the tree
      * @param right right successor of this node in the tree
      */
-    public TreeNode(Object object, TreeNode left, TreeNode right) {
+    public TreeNode(T object, TreeNode<T> left, TreeNode<T> right) {
         this.object = object;
         this.left = left;
         this.right = right;
     }
 
-    public Object getObject() {
+    public T getObject() {
         return this.object;
     }
 
-    public TreeNode getLeft() {
+    public TreeNode<T> getLeft() {
         return this.left;
     }
 
-    public TreeNode getRight() {
+    public TreeNode<T> getRight() {
         return this.right;
     }
 
-    public void setLeft(TreeNode left) {
+    public void setLeft(TreeNode<T> left) {
         this.left = left;
     }
 
-    public void setRight(TreeNode right) {
+    public void setRight(TreeNode<T> right) {
         this.right = right;
     }
 }

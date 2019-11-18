@@ -8,15 +8,15 @@ import structure.linkedlist.LinkedList;
  * get and delete methods to simulate the functionality of a stack via
  * push and pop methods.
  */
-public class LinkedStack implements Stack {
+public class LinkedStack<T> implements Stack<T> {
     /** the actual LinkedList structure */
-    private LinkedList list = new LinkedList();
+    private LinkedList<T> list = new LinkedList<T>();
 
     /**
      * Adds another object at the end of the stack.
      * @param o the object to be added
      */
-    public void push(Object o) {
+    public void push(T o) {
         this.list.insert(o);
     }
 
@@ -24,8 +24,8 @@ public class LinkedStack implements Stack {
      * Removes and gives the object at the end of the stack.
      * @return the last object in the stack, null if it is empty
      */
-    public Object pop() {
-        Object o = this.list.get();
+    public T pop() {
+        T o = this.list.get();
         this.list.delete();
         return o;
     }

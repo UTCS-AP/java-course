@@ -1,6 +1,6 @@
 package structure;
 
-public interface Queue {
-    void enqueue(Object o);
-    Object dequeue();
+public interface Queue<T> {
+    void enqueue(T o);
+    T dequeue();
 }

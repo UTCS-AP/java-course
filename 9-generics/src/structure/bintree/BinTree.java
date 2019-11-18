@@ -31,9 +31,9 @@ import structure.linkedlist.LinkedList;
  *
  * then its BFS would be (a, b, c, d, e, f, g), and its DFS (a, b, d, e, c, f, g).
  */
-public class BinTree {
+public class BinTree<T> {
     /** TreeNode reference to root, null when BinTree is empty */
-    private TreeNode root = null;
+    private TreeNode<T> root = null;
 
     /**
      * Checks if the tree is empty.
@@ -49,19 +49,19 @@ public class BinTree {
      * the new node in the first empty place it encounters.
      * @param o the Object to be added
      */
-    public void insert(Object o) {
+    public void insert(T o) {
         if (this.root == null)
-            this.root = new TreeNode(o);
+            this.root = new TreeNode<T>(o);
         else {
-            LinkedQueue queue = new LinkedQueue();
+            LinkedQueue<TreeNode<T>> queue = new LinkedQueue<TreeNode<T>>();
             queue.enqueue(this.root);
             while (true) {
-                TreeNode node = (TreeNode) queue.dequeue();
+                TreeNode<T> node = queue.dequeue();
                 if (node.getLeft() == null) {
-                    node.setLeft(new TreeNode(o));
+                    node.setLeft(new TreeNode<T>(o));
                     break;
                 } else if (node.getRight() == null) {
-                    node.setRight(new TreeNode(o));
+                    node.setRight(new TreeNode<T>(o));
                     break;
                 } else {
                     queue.enqueue(node.getLeft());
@@ -77,12 +77,12 @@ public class BinTree {
      * the next branch, which begins from a sibling of some previously met node.
      * @return the LinkList object made out of objects in the tree, in DFS order
      */
-    public LinkedList flattenDepthFirst() {
-        LinkedList list = new LinkedList();
-        LinkedStack stack = new LinkedStack();
+    public LinkedList<T> flattenDepthFirst() {
+        LinkedList<T> list = new LinkedList<T>();
+        LinkedStack<TreeNode<T>> stack = new LinkedStack<TreeNode<T>>();
         stack.push(this.root);
         while (!stack.isEmpty()) {
-            TreeNode currentNode = (TreeNode) stack.pop();
+            TreeNode<T> currentNode = stack.pop();
             list.insert(currentNode.getObject());
             if (currentNode.getRight() != null)
                 stack.push(currentNode.getRight());
@@ -98,12 +98,12 @@ public class BinTree {
      * in order of their level in the tree, and from left to right in their level.
      * @return the LinkList object made out of objects in the tree, in BFS order
      */
-    public LinkedList flattenBreadthFirst() {
-        LinkedList list = new LinkedList();
-        LinkedQueue queue = new LinkedQueue();
+    public LinkedList<T> flattenBreadthFirst() {
+        LinkedList<T> list = new LinkedList<T>();
+        LinkedQueue<TreeNode<T>> queue = new LinkedQueue<TreeNode<T>>();
         queue.enqueue(this.root);
         while (!queue.isEmpty()) {
-            TreeNode currentNode = (TreeNode) queue.dequeue();
+            TreeNode<T> currentNode = queue.dequeue();
             list.insert(currentNode.getObject());
             if (currentNode.getLeft() != null)
                 queue.enqueue(currentNode.getLeft());
