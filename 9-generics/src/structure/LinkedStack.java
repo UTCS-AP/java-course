@@ -8,7 +8,7 @@ import structure.linkedlist.LinkedList;
  * get and delete methods to simulate the functionality of a stack via
  * push and pop methods.
  */
-public class LinkedStack {
+public class LinkedStack implements Stack {
     /** the actual LinkedList structure */
     private LinkedList list = new LinkedList();
 

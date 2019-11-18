@@ -8,7 +8,7 @@ import structure.linkedlist.LinkedList;
  * get and delete methods to simulate the functionality of a queue via
  * enqueue and dequeue methods.
  */
-public class LinkedQueue {
+public class LinkedQueue implements Queue {
     /** the actual LinkedList structure */
     private LinkedList list = new LinkedList();
 
