@@ -47,7 +47,7 @@ public class Main {
         linkedList.insert(mammad);
         System.out.println("Inserting " + ali.getFirstName() + " to the end of the list.");
         linkedList.insert(ali);
-        System.out.println("Last person is " + ((Person) linkedList.get()).getFirstName());
+        System.out.println("Last person is " +  linkedList.get().getFirstName());
 
         System.out.print("Deleting the last person... ");
         System.out.println(
