@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/0-Basics/0-Basics.iml" filepath="$PROJECT_DIR$/0-Basics/0-Basics.iml" />
       <module fileurl="file://$PROJECT_DIR$/1-Functions/1-Functions.iml" filepath="$PROJECT_DIR$/1-Functions/1-Functions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/10-exception/10-exception.iml" filepath="$PROJECT_DIR$/10-exception/10-exception.iml" />
       <module fileurl="file://$PROJECT_DIR$/2-Classes/2-Classes.iml" filepath="$PROJECT_DIR$/2-Classes/2-Classes.iml" />
       <module fileurl="file://$PROJECT_DIR$/3-Static/3-Static.iml" filepath="$PROJECT_DIR$/3-Static/3-Static.iml" />
       <module fileurl="file://$PROJECT_DIR$/4-Structures/4-Structures.iml" filepath="$PROJECT_DIR$/4-Structures/4-Structures.iml" />
