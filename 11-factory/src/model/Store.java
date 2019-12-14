@@ -41,6 +41,10 @@ public class Store {
         }
     }
 
+    public List<StoreItem> getStoreItems() {
+        return this.storeItems;
+    }
+
     public Item getItem(String itemName) throws ItemNotFoundException {
         StoreItem protoItem = new StoreItem(itemName, 0, 0);
         int itemIdx = this.storeItems.indexOf(protoItem);

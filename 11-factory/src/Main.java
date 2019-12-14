@@ -2,6 +2,7 @@ import exc.ItemNotFoundException;
 import model.Item;
 import model.ListItem;
 import model.Store;
+import model.StoreItem;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -16,7 +17,17 @@ public class Main {
             Store store = Store.getInstance();
 
             System.out.println("Store supply:");
-            System.out.println(store + "\n\nWhat do you want?");
+            List<StoreItem> storeItems = store.getStoreItems();
+            for(int i = 0; i < storeItems.size(); i++) {
+                StoreItem currentItem = storeItems.get(i);
+                System.out.println(
+                        "\n#" + i + "\nName: " + currentItem.getItem().getName()
+                        + "\nPrice: " + currentItem.getItem().getValue()
+                        + "\nRemaining: " + currentItem.getAmount()
+                        + "\n--------"
+                );
+            }
+            System.out.println("\n\nWhat do you want?");
 
             Scanner scan = new Scanner(System.in);
             String itemName = "";

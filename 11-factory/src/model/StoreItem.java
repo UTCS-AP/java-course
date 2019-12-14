@@ -9,11 +9,11 @@ public class StoreItem {
         this.amount = amount;
     }
 
-    Item getItem() {
+    public Item getItem() {
         return this.item;
     }
 
-    int getAmount() {
+    public int getAmount() {
         return this.amount;
     }
 
