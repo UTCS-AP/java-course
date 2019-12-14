@@ -49,6 +49,7 @@ public class Main {
                 );
             }
             System.out.println("Grand Totale: " + grandTotal);
+            store.close();
         } catch (IOException e) {
             System.err.println("IO Error!");
             e.printStackTrace();

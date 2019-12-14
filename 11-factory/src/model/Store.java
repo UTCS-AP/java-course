@@ -56,8 +56,12 @@ public class Store {
         }
     }
 
+    public void close() throws IOException {
+        FileHandler.writeStore(this.toString());
+    }
+
     public String toString() {
-        String result = "ITEM\tVALUE\tAMOUNT\n";
+        String result = "ITEM\tPRC\tAMT\n";
         for (StoreItem storeItem : this.storeItems)
             result += storeItem.getItem().getName() + "\t" +
                     storeItem.getItem().getValue() + "\t" +
