@@ -5,6 +5,7 @@ import util.FileHandler;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -41,8 +42,8 @@ public class Store {
         }
     }
 
-    public List<StoreItem> getStoreItems() {
-        return this.storeItems;
+    public Iterator<StoreItem> getStoreIterator() {
+        return this.storeItems.iterator();
     }
 
     public Item getItem(String itemName) throws ItemNotFoundException {

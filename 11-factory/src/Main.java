@@ -6,6 +6,7 @@ import model.StoreItem;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,15 +18,17 @@ public class Main {
             Store store = Store.getInstance();
 
             System.out.println("Store supply:");
-            List<StoreItem> storeItems = store.getStoreItems();
-            for(int i = 0; i < storeItems.size(); i++) {
-                StoreItem currentItem = storeItems.get(i);
+            Iterator<StoreItem> storeIterator = store.getStoreIterator();
+            int i = 0;
+            while(storeIterator.hasNext()) {
+                StoreItem currentItem = storeIterator.next();
                 System.out.println(
                         "\n#" + i + "\nName: " + currentItem.getItem().getName()
                         + "\nPrice: " + currentItem.getItem().getValue()
                         + "\nRemaining: " + currentItem.getAmount()
                         + "\n--------"
                 );
+                i++;
             }
             System.out.println("\n\nWhat do you want?");
 
