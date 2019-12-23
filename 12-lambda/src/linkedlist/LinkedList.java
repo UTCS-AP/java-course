@@ -204,11 +204,8 @@ public class LinkedList<T> implements Iterable<T> {
     }
 
     public void forEach(Consumer<? super T> action) {
-        Node<T> currentNode = this.head;
-        while (currentNode != null) {
-            action.accept(currentNode.getObject());
-            currentNode = currentNode.getNext();
-        }
+        for (T object : this)
+            action.accept(object);
     }
 
     public boolean testWholeList(Tester<T> tester) {
