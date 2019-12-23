@@ -11,12 +11,7 @@ public class Main {
         list.insert(new IntegerWrapper(4));
 
         list.doThisWithWholeList(
-                new Function<IntegerWrapper>() {
-                    @Override
-                    public void doSomethingWith(IntegerWrapper integer) {
-                        integer.setValue(integer.getValue() + 1);
-                    }
-                }
+                integer -> integer.setValue(integer.getValue() + 1)
         );
 
         IntegerWrapper integerWrapper;
@@ -29,12 +24,7 @@ public class Main {
 
         System.out.println(
                 list.testWholeList(
-                        new Tester<IntegerWrapper>() {
-                            @Override
-                            public boolean test(IntegerWrapper integer) {
-                                return (integer.getValue() % 2 == 1);
-                            }
-                        }
+                        integer -> (integer.getValue() % 2 == 1)
                 )
         );
     }
