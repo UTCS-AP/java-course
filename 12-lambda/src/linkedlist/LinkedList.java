@@ -200,7 +200,18 @@ public class LinkedList<T> implements Iterable<T> {
     }
 
     public Iterator<T> iterator() {
-        return new LinkedListIterator<T>(this);
+        return new Iterator<T>() {
+            private Node<T> pointer = LinkedList.this.head;
+            public boolean hasNext() {
+                return (this.pointer != null);
+            }
+
+            public T next() {
+                T object = this.pointer.getObject();
+                this.pointer = this.pointer.getNext();
+                return object;
+            }
+        };
     }
 
     public void forEach(Consumer<? super T> action) {

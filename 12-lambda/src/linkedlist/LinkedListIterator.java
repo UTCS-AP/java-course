@@ -2,6 +2,9 @@ package linkedlist;
 
 import java.util.Iterator;
 
+/**
+ * OBSOLETE
+ */
 public class LinkedListIterator<T> implements Iterator<T> {
     private LinkedList<T> list;
     private Node<T> pointer;
