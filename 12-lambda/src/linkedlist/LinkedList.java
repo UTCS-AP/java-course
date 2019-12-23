@@ -211,14 +211,6 @@ public class LinkedList<T> implements Iterable<T> {
         }
     }
 
-    public void doThisWithWholeList(Function<T> function) {
-        Node<T> currentNode = this.head;
-        while (currentNode != null) {
-            function.doSomethingWith(currentNode.getObject());
-            currentNode = currentNode.getNext();
-        }
-    }
-
     public boolean testWholeList(Tester<T> tester) {
         boolean result = true;
         Node<T> currentNode = this.head;

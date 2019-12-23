@@ -8,7 +8,7 @@ public class Main {
         list.insert(new IntegerWrapper(2));
         list.insert(new IntegerWrapper(4));
 
-        list.doThisWithWholeList(
+        list.forEach(
                 integer -> integer.setValue(integer.getValue() + 1)
         );
 
