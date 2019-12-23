@@ -1,5 +1,9 @@
 package linkedlist;
 
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
 /**
  * A LinkList structure. Acts as a chain of Node objects, starting from "head".
  * LinkList has a flexible size; You can always add more nodes.
@@ -9,7 +13,7 @@ package linkedlist;
  * next one).
  * Also notice that this is the only public class in this package.
  */
-public class LinkedList<T> {
+public class LinkedList<T> implements Iterable<T> {
 
     /** First node in the list, null when it's empty. */
     private Node<T> head = null;
@@ -189,6 +193,22 @@ public class LinkedList<T> {
             }
         }
         return currentNode;
+    }
+
+    Node<T> getHead() {
+        return this.head;
+    }
+
+    public Iterator<T> iterator() {
+        return new LinkedListIterator<T>(this);
+    }
+
+    public void forEach(Consumer<? super T> action) {
+        Node<T> currentNode = this.head;
+        while (currentNode != null) {
+            action.accept(currentNode.getObject());
+            currentNode = currentNode.getNext();
+        }
     }
 
     public void doThisWithWholeList(Function<T> function) {

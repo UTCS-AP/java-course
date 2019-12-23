@@ -1,7 +1,5 @@
 import data.IntegerWrapper;
-import linkedlist.Function;
 import linkedlist.LinkedList;
-import linkedlist.Tester;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,12 +12,8 @@ public class Main {
                 integer -> integer.setValue(integer.getValue() + 1)
         );
 
-        IntegerWrapper integerWrapper;
-        int i = 0;
-        integerWrapper = list.get(0);
-        while (integerWrapper != null) {
+        for(IntegerWrapper integerWrapper : list) {
             System.out.println("\t" + integerWrapper.getValue());
-            integerWrapper = list.get(++i);
         }
 
         System.out.println(
