@@ -15,6 +15,6 @@ https://github.com/masoudahmadi9079/UTank
 
 https://github.com/hhdri/UTank
 
-https://github.com/MasterShayan/uTanks
+https://github.com/kahoor/uTank
 
 https://gitlab.com/soori.mess/finalproject-utank (request permission from maintainer)
